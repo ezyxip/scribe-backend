@@ -3,6 +3,7 @@ FROM eclipse-temurin:21-jdk-jammy as builder
 
 WORKDIR /app
 COPY . .
+RUN chmod +x gradlew
 RUN ./gradlew build --no-daemon
 
 # Финальный образ (только JRE 21)
