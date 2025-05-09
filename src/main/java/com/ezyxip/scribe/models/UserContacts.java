@@ -1,5 +1,6 @@
 package com.ezyxip.scribe.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -21,11 +22,12 @@ import lombok.Setter;
 @Setter
 public class UserContacts {
     @Id
+    @Column(name = "user_id")
     private Long userId;
 
     @MapsId
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     private String email;
